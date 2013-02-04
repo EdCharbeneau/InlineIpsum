@@ -8,7 +8,7 @@
 //}
 ; (function ($, window, document, undefined) {
     'use strict';
-    
+
     var IpsumWriter = {
         cache: "",
         p: function () {
@@ -16,8 +16,11 @@
             return this;
         },
 
-        h: function () {
-            this.cache += '<h1>Lorem Ipsum</h1>';
+        h1: function () {
+            var element =$("<h1></h1>", {
+                text: "Lorem Ipsum"
+            })[0].outerHTML;
+            this.cache += element;
             return this;
         },
 
@@ -26,13 +29,21 @@
         }
     };
 
+    var justDoIt = function (str) {
+        var Ipsum = Object.create(IpsumWriter);
+        var command = str.replace('@Html.', '').concat('.write()');
+        return eval(command);
+    };
+
     $.fn.inlineIpsum = function () {
         //main
         var Ipsum = Object.create(IpsumWriter);
-        var str = '@Html.Ipsum.p().h()';
-        var command = str.replace('@Html.','').concat('.write()');
-        console.log(eval(command));
-        var result = eval(command);
+        //var str = '@Html.Ipsum.p().h()';        
+        //var command = str.replace('@Html.','').concat('.write()');
+        //console.log(eval(command));
+        //var result = eval(command);
+        return this.replaceText(/@Html.Ipsum()[^\s]+/gi, justDoIt);
+
     };
 
     $.fn.inlineIpsum.options = {};
