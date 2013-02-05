@@ -11,6 +11,23 @@
             this.cache += item[0].outerHTML;
         },
 
+        words: function(count)
+        {
+            var lorem = new Lorem();
+            return lorem.createText(count, Lorem.TYPE.WORD)
+        },
+
+        sentences: function(count)
+        {
+            var lorem = new Lorem();
+            return lorem.createText(count, Lorem.TYPE.SENTENCE)
+        },
+        paragraphs: function(count)
+        {
+            var lorem = new Lorem();
+            return lorem.createText(count, Lorem.TYPE.PARAGRAPH)
+        },
+
         tagBuilder: function (tag, text, attributes) {
             attributes = $.extend({}, { text: text }, attributes);
             return $(tag, attributes);
@@ -19,20 +36,17 @@
         p: function (paragraphCount, sentenceCount, attributes) {
             paragraphCount = paragraphCount || 1;
             sentenceCount = sentenceCount || 5;
-            var lorem = new Lorem();
             var tag = "<p></p>";
             for (var i = 0; i < paragraphCount; i++) {
-                this.addCache(this.tagBuilder(tag, lorem.createText(sentenceCount, Lorem.TYPE.SENTENCE), attributes));
+                this.addCache(this.tagBuilder(tag, this.sentences(sentenceCount), attributes));
             }
             return this;
         },
 
         h: function (level, wordCount, attributes) {
             wordCount = wordCount || 2;
-            var lorem = new Lorem();
             var tag = "<h" + level + "></h" + level + ">";
-            var text = "Lorem Ipsum";
-            this.addCache(this.tagBuilder(tag, lorem.createText(wordCount, Lorem.TYPE.WORD), attributes));
+            this.addCache(this.tagBuilder(tag, this.words(wordCount), attributes));
             return this;
         },
 
@@ -40,7 +54,7 @@
             wordCount = wordCount || 2;
             var lorem = new Lorem();
             hasLink = hasLink || false;
-            var li = this.tagBuilder(tag, lorem.createText(wordCount, Lorem.TYPE.WORD), attributes);
+            var li = this.tagBuilder(tag, this.words(wordCount), attributes);
             if (hasLink) {
                 li.wrapInner("<a href='#'></a>");
             }
@@ -103,6 +117,10 @@
 
         h6: function (wordCount, attributes) {
             this.h(6, wordCount, attributes);
+            return this;
+        },
+        blogPost: function () {
+            this.h1(3).p(2, 25).h2().p(3, 15).h3(2).p();
             return this;
         }
     };
