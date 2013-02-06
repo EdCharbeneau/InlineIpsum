@@ -2,23 +2,38 @@
 //Proof of concept only
 var foundationIpsum =
 {
+
+    _appendClass: function (attributes, cssClass) {
+        //ensure that a css class exists
+        attributes = $.extend({}, { "class": "" }, attributes);
+        //append
+        attributes.class = (attributes.class + " " + cssClass).trim();
+        //give the object back
+        return attributes;
+    },
+
     breadcrumbs: function (listCount, wordCount, attributes) {
-        attributes = $.extend({}, { "class": "breadcrumbs" }, attributes);
+        attributes = this._appendClass(attributes, "breadcrumbs");
         this.ul(listCount, wordCount, true, attributes);
         return this;
     },
     pills: function (listCount, wordCount, attributes) {
-        attributes = $.extend({}, { "class": "tabs pill" }, attributes);
+        attributes = this._appendClass(attributes, "tabs pill");
         this.ul(listCount, wordCount, true, attributes);
         return this;
     },
-    vNav: function (listCount, wordCount, attributes) {
-        attributes = $.extend({}, { "class": "nav-bar vertical" }, attributes);
+    navbar: function (listCount, wordCount, attributes) {
+        attributes = this._appendClass(attributes, "nav-bar");
         this.ul(listCount, wordCount, true, attributes);
+        return this;
+    },
+    vnavbar: function (listCount, wordCount, attributes) {
+        attributes = this._appendClass(attributes, "vertical");
+        this.navbar(listCount, wordCount, attributes);
         return this;
     },
     inlineList: function (listCount, wordCount, attributes) {
-        attributes = $.extend({}, { "class": "inline-list" }, attributes);
+        attributes = this._appendClass(attributes, "inline-list");
         this.ul(listCount, wordCount, true, attributes);
         return this;
     }

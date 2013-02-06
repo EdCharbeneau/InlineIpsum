@@ -16,13 +16,27 @@
     <!-- Included CSS Files (Compressed) -->
     <link rel="stylesheet" href="stylesheets/foundation.min.css">
     <link rel="stylesheet" href="stylesheets/app.css">
-
+    <style>
+        .custom.nav-bar {
+            background-color: #2ba6cb;
+        }
+    </style>
     <script src="javascripts/modernizr.foundation.js"></script>
 </head>
 <body>
     <div class="row">
         <div class="twelve columns">
             @Zurb.Ipsum.breadcrumbs()
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            @Zurb.Ipsum.navbar(5,1,{"class": "right"})
+        </div>
+    </div>
+        <div class="row">
+        <div class="twelve columns">
+            @Zurb.Ipsum.navbar(5,1,{"class": "custom"})
         </div>
     </div>
     <div class="row">
@@ -37,7 +51,8 @@
     </div>
     <div class="row">
         <div class="four columns">
-            @Zurb.Ipsum.vNav()
+            <!-- alternative Zurb.Ipsum.navbar(4,2,{"class": "vertical"}) -->
+            @Zurb.Ipsum.vnavbar()
         </div>
         <div class="eight columns">
             @Zurb.Ipsum.h1().p().h2().p()
