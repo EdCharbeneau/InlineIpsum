@@ -46,7 +46,8 @@ Thank you!
 Still not ready for prime-time.
 
 ##### Changelog
-0.2 Updated Core to allow customized inlineIpsum plugins
-- Added Extensions
-- Added locator option
-0.1 Beta
+- 0.3 Updated Core to allow custom token in place of "@"
+- 0.2 Updated Core to allow customized inlineIpsum plugins
+	- Added Extensions
+	- Added locator option
+- 0.1 Beta
