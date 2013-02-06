@@ -39,6 +39,21 @@
             return this;
         },
 
+        image: function(width, height, text, bgColor, fgColor, attributes)
+        {
+            height = height || width;
+            bgColor = bgColor || "eee";
+            var dim = width + "x" + height + "/";
+            fgColor = (typeof fgColor != 'undefined') ? fgColor + "/" : "";
+            bgColor = (typeof fgColor != 'undefined') ? bgColor + "/" : ""; //if fgColor is undefined, ignore the bg color because it wasn't set either
+            text = (typeof text != 'undefined') ? "&text=" + text : "";
+            var tag = "<image/>";
+            var imgUrl = "http://placehold.it/" + dim + fgColor + bgColor + text
+            attributes = $.extend({}, {"src": imgUrl}, attributes)
+            this._addCache(this._tagBuilder(tag, "", attributes));
+            return this;
+        },
+
         _h: function (level, wordCount, attributes) {
             wordCount = wordCount || 2;
             var tag = "<h" + level + "></h" + level + ">";

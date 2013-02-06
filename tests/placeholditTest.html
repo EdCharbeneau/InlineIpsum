@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width" />
+
+    <title>Plugin Testing</title>
+
+    <!-- Included CSS Files -->
+
+
+</head>
+<body>
+    <div>
+        @Html.Ipsum.image(300)
+        @Html.Ipsum.image(300,400)
+        @Html.Ipsum.image(300,400, "has text")
+        @Html.Ipsum.image(300,400, "has color", "000")
+        @Html.Ipsum.image(300,400, "has colors", "000", "c00")
+        @Html.Ipsum.image(300,400, "has alt text", "000", "c00", {"alt":"Has alt text"})
+    </div>
+    <!-- Included JS Files -->
+    <script src="../plugin-src/javascripts/jquery-1.8.3.min.js"></script>
+    <script src="../plugin-src/javascripts/jquery-replacetext-master/jquery.ba-replacetext.js"></script>
+    <script src="../plugin-src/javascripts/loremjs-master/lorem.js"></script>
+    <script src="../plugin-src/jquery.inlineIpsum.js"></script>
+
+    <script>
+        $('body *').inlineIpsum();
+    </script>
+</body>
+</html>
