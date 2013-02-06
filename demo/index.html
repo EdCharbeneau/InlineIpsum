@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Inline Ipsum Demo</title>
+</head>
+<body>
+    <div>
+        <h1>Examples</h1>
+        <h2>Paragraph</h2>
+        @Html.Ipsum.p()
+		<h2>Four paragraphs, ten sentences</h2>
+        @Html.Ipsum.p(4, 10)
+		<h2>Paragraph with the attribute class="fancy"</h2>
+        @Html.Ipsum.p(1,10,{ class:"fancy" })
+		<h2>h1 tag</h2>
+        @Html.Ipsum.h1()
+		<h2>h1 tag, just one word long</h2>
+        @Html.Ipsum.h1(1)
+		<h2>h2 tag, with the attribute data-special="true"</h2>
+        @Html.Ipsum.h2(5, { data_special: "true" })
+		<h2>unordered list</h2>
+        @Html.Ipsum.ul()
+		<h2>unordered list of links</h2>
+        @Html.Ipsum.ul(4,2,true)
+		<h2>a mock blog post</h2>
+        @Html.Ipsum.blogPost()
+		<h2>Fluent api</h2>
+        @Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
+    </div>
+
+    <!-- reference jQuery -->
+    <script src="./javascripts/jquery-1.8.3.min.js"></script>
+    <!-- reference jquery.inlineIpsum.js -->
+    <!-- the minified version contains all the necessary dependencies besides jquery -->
+    <script src="./javascripts/jquery.inlineIpsum.min.js"></script>
+
+    <script>
+        /* Initialize inlineIpsum */
+        $('body *').inlineIpsum();
+    </script>
+</body>
+</html>
