@@ -50,6 +50,7 @@ Thank you!
 Still not ready for prime-time.
 
 ##### Changelog
+- 0.5 Added error handling, no more killing javascript
 - 0.4 Added placeholder image helper
 - 0.3 Updated Core to allow custom token in place of "@"
 - 0.2 Updated Core to allow customized inlineIpsum plugins
