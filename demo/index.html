@@ -3,30 +3,131 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>Inline Ipsum Demo</title>
+    <style>
+        /* Demo styles for looks only */
+        body {
+            font-size:16px;
+        }
+        .description {
+            background-color: #808080;
+            color: #fff;
+            padding: 5px;
+        }
+        code {
+            background-color:#120600;
+            color:#a0ccec;
+            font-size:16px;
+        }
+
+        .results {
+            margin: 10px 0;
+        }
+
+        .fancy {
+            color: #0094ff;
+            font-style: italic;
+        }
+
+        [data-special="true"] {
+            color: #ff6a00;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <div>
         <h1>Examples</h1>
-        <h2>Paragraph</h2>
-        @Html.Ipsum.p()
-		<h2>Four paragraphs, ten sentences</h2>
-        @Html.Ipsum.p(4, 10)
-		<h2>Paragraph with the attribute class="fancy"</h2>
-        @Html.Ipsum.p(1,10,{ class:"fancy" })
-		<h2>h1 tag</h2>
-        @Html.Ipsum.h1()
-		<h2>h1 tag, just one word long</h2>
-        @Html.Ipsum.h1(1)
-		<h2>h2 tag, with the attribute data-special="true"</h2>
-        @Html.Ipsum.h2(5, { data_special: "true" })
-		<h2>unordered list</h2>
-        @Html.Ipsum.ul()
-		<h2>unordered list of links</h2>
-        @Html.Ipsum.ul(4,2,true)
-		<h2>a mock blog post</h2>
-        @Html.Ipsum.blogPost()
-		<h2>Fluent api</h2>
-        @Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
+        <div class="description">
+            <ol>
+                <li>Reference jQuery <code>&lt;script src="jquery-1.8.3.min.js"&gt;&lt/script&gt;</code></li>
+                <li>Reference inlineIpsum <code>&lt;script src="jquery.inlineIpsum.min.js"&gt;&lt/script&gt;</code></li>
+                <li>Initialize the plugin <code>&lt;script&gt;$('body *').inlineIpsum();&gt;&lt/script&gt;</code></li>
+                <li>Use Razor like syntax to trigger inlineIpsum, any <code>@Html.Ipsum</code> code found within the body of a document will be replaced with Lorem Ipsum text.</li>
+                <li>Basic HTML elements, filled with Lorem Ipsum are created by using the simple fluent api <code>@Html.Ipsum.h1().p().h2().p()</code></li>
+                <li>Take full control over the output by passing arguements <code>@Html.Ipsum.p(paragraphs, sentences, htmlAttributes)</code> See the examples below for more details.</li>
+            </ol>
+            
+        </div>
+        <div class="description">
+            <h2>Paragraph</h2>
+            <code>Code: @Html.Ipsum.p()</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.p()
+        </div>
+        <div class="description">
+            <h2>Four paragraphs, ten sentences</h2>
+            <code>Code: @Html.Ipsum.p(4, 10)</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.p(4, 10)
+        </div>
+        <div class="description">
+            <h2>Paragraph with the attribute class="fancy"</h2>
+            <code>Code: @Html.Ipsum.p(1,10,{ "class":"fancy" })</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.p(1,10,{ "class":"fancy" })
+        </div>
+        <div class="description">
+            <h2>h1 tag</h2>
+            <code>Code: @Html.Ipsum.h1()</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.h1()
+        </div>
+        <div class="description">
+            <h2>h1 tag, just one word long</h2>
+            <code>Code: @Html.Ipsum.h1(1)</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.h1(1)
+        </div>
+        <div class="description">
+            <h2>h2 tag, with the attribute data-special="true"</h2>
+            <code>Code: @Html.Ipsum.h2(5, { "data-special": "true" })</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.h2(5, { "data-special": "true" })
+        </div>
+        <div class="description">
+            <h2>unordered list</h2>
+            <code>Code: @Html.Ipsum.ul()</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.ul()
+        </div>
+        <div class="description">
+            <h2>unordered list of links</h2>
+            <code>Code: @Html.Ipsum.ul(4,2,true)</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.ul(4,2,true)
+        </div>
+        <div class="description">
+            <h2>a mock blog post</h2>
+            <code>Code: @Html.Ipsum.blogPost()</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.blogPost()
+        </div>
+        <div class="description">
+            <h2>Fluent api</h2>
+            <code>@Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)</code>
+        </div>
+        <div class="results">
+            <span>Result:</span>
+            @Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
+        </div>
     </div>
 
     <!-- reference jQuery -->
@@ -37,7 +138,10 @@
 
     <script>
         /* Initialize inlineIpsum */
-        $('body *').inlineIpsum();
+        /* $('body *').inlineIpsum(); */
+        
+        //initalized with .not() to prevent description code from rendering inline ipsum
+        $('body *').not(".description code").inlineIpsum();
     </script>
 </body>
 </html>
