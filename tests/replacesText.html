@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-       @Html.Ipsum.h1().h2().h3().h4().h5().h6()
+       @Zurb.Ipsum.h1().h2().h3().h4().h5().h6() .h7()
         @Html.Ipsum.ul()
         @Html.Ipsum.ul(4,true)
     </div>
@@ -29,10 +29,14 @@
     <script src="../plugin-src/javascripts/jquery-1.8.3.min.js"></script>
     <script src="../plugin-src/javascripts/jquery-replacetext-master/jquery.ba-replacetext.js"></script>
     <script src="../plugin-src/javascripts/loremjs-master/lorem.js"></script>
+    <script src="../plugin-src/h7.engine.js"></script>
     <script src="../plugin-src/jquery.inlineIpsum.js"></script>
 
     <script>
-        $('body *').inlineIpsum();
+        $('body *').inlineIpsum({
+            //engine: MyEngine,
+            //locator: "Zurb"
+        });
     </script>
 </body>
 </html>

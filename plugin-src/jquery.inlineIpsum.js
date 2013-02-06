@@ -6,24 +6,20 @@
 
         cache: "",
 
-        addCache: function(item)
-        {
+        addCache: function (item) {
             this.cache += item[0].outerHTML;
         },
 
-        words: function(count)
-        {
+        words: function (count) {
             var lorem = new Lorem();
             return lorem.createText(count, Lorem.TYPE.WORD)
         },
 
-        sentences: function(count)
-        {
+        sentences: function (count) {
             var lorem = new Lorem();
             return lorem.createText(count, Lorem.TYPE.SENTENCE)
         },
-        paragraphs: function(count)
-        {
+        paragraphs: function (count) {
             var lorem = new Lorem();
             return lorem.createText(count, Lorem.TYPE.PARAGRAPH)
         },
@@ -125,19 +121,30 @@
         }
     };
 
+    var Ipsum;
+    var settings;
     var inline = function (str) {
-        var Ipsum = Object.create(IpsumWriter);
-        var command = str.replace('@Html.', '').concat('.write()');
+
+        var command = str.replace("@"+settings.locator +".", "").concat(".write()");
         return eval(command);
     };
 
-    $.fn.inlineIpsum = function () {
+    $.fn.inlineIpsum = function (options) {
         //main
-        var Ipsum = Object.create(IpsumWriter);
-        return this.replaceText(/@html.Ipsum(\..*?\))*/gi, inline);
+        if (typeof options != 'undefined') {
+            if (typeof options.engine != 'undefined') {
+                options.engine = $.extend({}, $.fn.inlineIpsum.options.engine, options.engine);
+            }
+        }
+        settings = $.extend({}, $.fn.inlineIpsum.options, options);
+        Ipsum = Object.create(settings.engine);
+        return this.replaceText(new RegExp("@" + settings.locator + ".Ipsum(\\..*?\\))*", "gi"), inline);
 
     };
 
-    $.fn.inlineIpsum.options = {};
+    $.fn.inlineIpsum.options = {
+        engine: IpsumWriter,
+        locator: "Html",
+    };
 
 })(jQuery, window, document);
