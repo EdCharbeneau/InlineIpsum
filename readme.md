@@ -14,22 +14,24 @@ Download InlineIpsum and run the index.html from the Demo folder.
 	@Html.Ipsum.p()
 	Four paragraphs, ten sentences
 	@Html.Ipsum.p(4, 10)
-	//Paragraph with the attribute class="fancy"
+	Paragraph with the attribute class="fancy"
 	@Html.Ipsum.p(1,10,{ "class":"fancy" })
-	//h1 tag
+	h1 tag
 	@Html.Ipsum.h1()
-	//h1 tag, just one word long
+	h1 tag, just one word long
 	@Html.Ipsum.h1(1)
-	//h2 tag, with the attribute data-special="true"
+    h2 tag, with the attribute data-special="true"
 	@Html.Ipsum.h2(5, { "data-special": "true" })
-	//unordered list
+	unordered list
 	@Html.Ipsum.ul()
-	//unordered list of links
+	unordered list of links
 	@Html.Ipsum.ul(4,2,true)
-	//a mock blog post
+	a mock blog post
 	@Html.Ipsum.blogPost()
-	//Fluent api
+	Fluent api
 	@Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
+	placeholder image provided by [placehold.it](http://placehold.it)
+	@Html.Ipsum.image(600,200, "has text")
 
 ####Credits
 
@@ -40,12 +42,15 @@ jQuery replaceText: String replace for your jQueries!
 
 Lorem.js Dummy Text/Image Generator jQuery and Native JS [https://github.com/fkadeveloper/loremjs](https://github.com/fkadeveloper/loremjs)
 
+The placehold.it image service: [placehold.it](http://placehold.it)
+
 Thank you!
 
 ##### Learn more
 Still not ready for prime-time.
 
 ##### Changelog
+- 0.4 Added placeholder image helper
 - 0.3 Updated Core to allow custom token in place of "@"
 - 0.2 Updated Core to allow customized inlineIpsum plugins
 	- Added Extensions
