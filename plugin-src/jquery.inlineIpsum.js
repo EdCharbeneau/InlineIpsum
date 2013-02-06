@@ -124,7 +124,7 @@
     var Ipsum;
     var settings;
     var inline = function (str) {
-
+        Ipsum = Object.create(settings.extension);
         var command = str.replace("@"+settings.locator +".", "").concat(".write()");
         return eval(command);
     };
@@ -137,7 +137,7 @@
             }
         }
         settings = $.extend({}, $.fn.inlineIpsum.options, options);
-        Ipsum = Object.create(settings.extension);
+        
         return this.replaceText(new RegExp("@" + settings.locator + ".Ipsum(\\..*?\\))*", "gi"), inline);
 
     };
