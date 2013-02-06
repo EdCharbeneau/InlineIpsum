@@ -140,8 +140,15 @@
     var settings;
     var inline = function (str) {
         Ipsum = Object.create(settings.extension);
-        var command = str.replace(settings.token + settings.locator +".", "").concat(".write()");
-        return eval(command);
+        var result;
+        var command = str.replace(settings.token + settings.locator + ".", "").concat(".write()");
+        try {
+            result = eval(command);
+        } catch (e) {
+            result = $("<em></em>", { text: "Go home Ipsum you're drunk", style: "color: transparent;text-shadow: 0px 0px 2px #FF33FF;", title: e.message })[0].outerHTML;
+        }
+
+        return result;
     };
 
     $.fn.inlineIpsum = function (options) {
