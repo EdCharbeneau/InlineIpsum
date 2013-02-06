@@ -22,15 +22,30 @@
 <body>
     <div class="row">
         <div class="twelve columns">
-            @Html.Ipsum.h1()
+            @Zurb.Ipsum.breadcrumbs()
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            @Zurb.Ipsum.pills()
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            @Zurb.Ipsum.h1()
         </div>
     </div>
     <div class="row">
         <div class="four columns">
-            @Html.Ipsum.ul()
+            @Zurb.Ipsum.vNav()
         </div>
         <div class="eight columns">
-
+            @Zurb.Ipsum.h1().p().h2().p()
+        </div>
+    </div>
+    <div class="row">
+        <div class="twelve columns">
+            @Zurb.Ipsum.inlineList()
         </div>
     </div>
     <!-- Included JS Files (Compressed) -->
@@ -41,9 +56,15 @@
     <script src="javascripts/app.js"></script>
     <script src="../../plugin-src/javascripts/jquery-replacetext-master/jquery.ba-replacetext.js"></script>
     <script src="../../plugin-src/javascripts/loremjs-master/lorem.js"></script>
+    <script src="../../plugin-src/extensions/foundation.ipsumExtension.js"></script>
     <script src="../../plugin-src/jquery.inlineIpsum.js"></script>
     <script>
-        $('body *').inlineIpsum();
+        $('body *').inlineIpsum(
+            {
+                extension: foundationIpsum,
+                locator: "Zurb"
+            }
+            );
     </script>
 </body>
 </html>
