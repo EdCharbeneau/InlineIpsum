@@ -2,35 +2,36 @@
 The InlineIpsum for jQuery plugin provides a fluent API that creates Lorem Ipsum text at runtime using simple helper extension methods. The InlineIpsum plugin for jQuery is specifically for reducing prototyping markup.
 
 ###Install Prototyping for jQuery:
-Prototyping for jQuery is still in development and not ready for use. Check back soon.
+1. Reference jQuery ``<script src="jquery-1.8.3.min.js"></script>``
+2. Reference inlineIpsum ``<script src="jquery.inlineIpsum.min.js"></script>``
+3. Initialize the plugin ``<script>$('body *').inlineIpsum();></script>``
+
+Download InlineIpsum and run the index.html from the Demo folder.
 
 If you would like to check out the beta, download the repo and run the replacesText.html page from the InlineIpsum > tests folder.
 
 ###Getting started.
 
-	//Paragraph
-	@Html.Ipsum().p()
-	//Four paragraphs, ten sentences
-	@Html.Ipsum().p(4, 10)
+	Paragraph
+	@Html.Ipsum.p()
+	Four paragraphs, ten sentences
+	@Html.Ipsum.p(4, 10)
 	//Paragraph with the attribute class="fancy"
-	@Html.Ipsum().p(htmlAttributes: new { @class = "fancy" })
+	@Html.Ipsum.p(1,10,{ "class":"fancy" })
 	//h1 tag
-	@Html.Ipsum().h1()
+	@Html.Ipsum.h1()
 	//h1 tag, just one word long
-	@Html.Ipsum().h1(1)
+	@Html.Ipsum.h1(1)
 	//h2 tag, with the attribute data-special="true"
-	@Html.Ipsum().h2(5, new { data_special = "true" })
+	@Html.Ipsum.h2(5, { "data-special": "true" })
 	//unordered list
-	@Html.Ipsum().ul()
+	@Html.Ipsum.ul()
 	//unordered list of links
-	@Html.Ipsum().ul(links: true)
+	@Html.Ipsum.ul(4,2,true)
 	//a mock blog post
-	@Html.Ipsum().BlogPost()
-	//non HTML ipsum
-	@Html.Ipsum().Words(50)
-	@Html.Ipsum().Paragraphs(2)
+	@Html.Ipsum.blogPost()
 	//Fluent api
-	@Html.Ipsum().h1().p().h2().p().h3().ol(10,3, true)
+	@Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
 
 ####Credits
 
