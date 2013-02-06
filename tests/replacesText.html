@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-       @Zurb.Ipsum.h1().h2().h3().h4().h5().h6() .h7()
+       @Html.Ipsum.h1().h2().h3().h4().h5().h6().h7()
         @Html.Ipsum.ul()
         @Html.Ipsum.ul(4,true)
     </div>
@@ -34,7 +34,7 @@
 
     <script>
         $('body *').inlineIpsum({
-            //engine: MyEngine,
+            engine: MyEngine,
             //locator: "Zurb"
         });
     </script>
