@@ -8,8 +8,6 @@ The InlineIpsum for jQuery plugin provides a fluent API that creates Lorem Ipsum
 
 Download InlineIpsum and run the index.html from the Demo folder.
 
-If you would like to check out the beta, download the repo and run the replacesText.html page from the InlineIpsum > tests folder.
-
 ###Getting started.
 
 	Paragraph
