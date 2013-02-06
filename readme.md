@@ -1,7 +1,7 @@
 #InlineIpsum for jQuery
 The InlineIpsum for jQuery plugin provides a fluent API that creates Lorem Ipsum text at runtime using simple helper extension methods. The InlineIpsum plugin for jQuery is specifically for reducing prototyping markup.
 
-###Install Prototyping for jQuery:
+###Install InlineIpsum for jQuery:
 1. Reference jQuery ``<script src="jquery-1.8.3.min.js"></script>``
 2. Reference inlineIpsum ``<script src="jquery.inlineIpsum.min.js"></script>``
 3. Initialize the plugin ``<script>$('body *').inlineIpsum();></script>``
@@ -46,4 +46,7 @@ Thank you!
 Still not ready for prime-time.
 
 ##### Changelog
+0.2 Updated Core to allow customized inlineIpsum plugins
+- Added Extensions
+- Added locator option
 0.1 Beta
