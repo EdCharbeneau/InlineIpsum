@@ -132,18 +132,18 @@
     $.fn.inlineIpsum = function (options) {
         //main
         if (typeof options != 'undefined') {
-            if (typeof options.engine != 'undefined') {
-                options.engine = $.extend({}, $.fn.inlineIpsum.options.engine, options.engine);
+            if (typeof options.extension != 'undefined') {
+                options.extension = $.extend({}, $.fn.inlineIpsum.options.extension, options.extension);
             }
         }
         settings = $.extend({}, $.fn.inlineIpsum.options, options);
-        Ipsum = Object.create(settings.engine);
+        Ipsum = Object.create(settings.extension);
         return this.replaceText(new RegExp("@" + settings.locator + ".Ipsum(\\..*?\\))*", "gi"), inline);
 
     };
 
     $.fn.inlineIpsum.options = {
-        engine: IpsumWriter,
+        extension: IpsumWriter,
         locator: "Html",
     };
 

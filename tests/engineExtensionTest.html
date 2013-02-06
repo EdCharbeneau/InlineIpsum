@@ -8,12 +8,18 @@
     <title>Plugin Testing</title>
 
     <!-- Included CSS Files -->
-
-
+    <style>
+        h7 {
+            font-size: 44px;
+        }
+            h7::after {
+                content:" !added via extension!";
+            }
+    </style>
 </head>
 <body>
     <div>
-       @Html.Ipsum.h1().h2().h3().h4().h5().h6()
+        @Html.Ipsum.h1().h2().h3().h4().h5().h6().h7()
         @Html.Ipsum.ul()
         @Html.Ipsum.ul(4,true)
     </div>
@@ -29,10 +35,13 @@
     <script src="../plugin-src/javascripts/jquery-1.8.3.min.js"></script>
     <script src="../plugin-src/javascripts/jquery-replacetext-master/jquery.ba-replacetext.js"></script>
     <script src="../plugin-src/javascripts/loremjs-master/lorem.js"></script>
+    <script src="../plugin-src/extensions/h7.ipsumExtension.js"></script>
     <script src="../plugin-src/jquery.inlineIpsum.js"></script>
 
     <script>
-        $('body *').inlineIpsum();
+        $('body *').inlineIpsum({
+            extension: MyEngine,
+        });
     </script>
 </body>
 </html>
