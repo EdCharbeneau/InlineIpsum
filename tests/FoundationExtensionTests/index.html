@@ -25,6 +25,11 @@
 </head>
 <body>
     <div class="row">
+        <div class="tweleve columns">
+            @Yeti.Ipsum.orbit("featured",600,300, 3)
+        </div>
+    </div>
+    <div class="row">
         <div class="twelve columns">
             @Yeti.Ipsum.breadcrumbs()
         </div>
@@ -34,7 +39,7 @@
             @Yeti.Ipsum.navbar(5,1,{"class": "right"})
         </div>
     </div>
-        <div class="row">
+    <div class="row">
         <div class="twelve columns">
             @Yeti.Ipsum.navbar(5,1,{"class": "custom"})
         </div>
@@ -81,5 +86,10 @@
             }
             );
     </script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $("#featured").orbit();
+        });
+</script>
 </body>
 </html>
