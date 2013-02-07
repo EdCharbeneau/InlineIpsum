@@ -1,8 +1,7 @@
 //Foundation inlineIpsum Extension methods
 //Proof of concept only
-var foundationIpsum =
+var yetiIpsum =
 {
-
     _appendClass: function (attributes, cssClass) {
         //ensure that a css class exists
         attributes = $.extend({}, { "class": "" }, attributes);

@@ -26,41 +26,41 @@
 <body>
     <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.breadcrumbs()
+            @Yeti.Ipsum.breadcrumbs()
         </div>
     </div>
     <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.navbar(5,1,{"class": "right"})
+            @Yeti.Ipsum.navbar(5,1,{"class": "right"})
         </div>
     </div>
         <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.navbar(5,1,{"class": "custom"})
+            @Yeti.Ipsum.navbar(5,1,{"class": "custom"})
         </div>
     </div>
     <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.pills()
+            @Yeti.Ipsum.pills()
         </div>
     </div>
     <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.h1()
+            @Yeti.Ipsum.h1()
         </div>
     </div>
     <div class="row">
         <div class="four columns">
-            <!-- alternative Zurb.Ipsum.navbar(4,2,{"class": "vertical"}) -->
-            @Zurb.Ipsum.vnavbar()
+            <!-- alternative Yeti.Ipsum.navbar(4,2,{"class": "vertical"}) -->
+            @Yeti.Ipsum.vnavbar()
         </div>
         <div class="eight columns">
-            @Zurb.Ipsum.h1().p().h2().p()
+            @Yeti.Ipsum.h1().p().h2().p()
         </div>
     </div>
     <div class="row">
         <div class="twelve columns">
-            @Zurb.Ipsum.inlineList()
+            @Yeti.Ipsum.inlineList()
         </div>
     </div>
     <!-- Included JS Files (Compressed) -->
@@ -71,13 +71,13 @@
     <script src="javascripts/app.js"></script>
     <script src="../../plugin-src/javascripts/jquery-replacetext-master/jquery.ba-replacetext.js"></script>
     <script src="../../plugin-src/javascripts/loremjs-master/lorem.js"></script>
-    <script src="../../plugin-src/extensions/foundation.ipsumExtension.js"></script>
+    <script src="../../plugin-src/extensions/yeti.ipsumExtension.js"></script>
     <script src="../../plugin-src/jquery.inlineIpsum.js"></script>
     <script>
         $('body *').inlineIpsum(
             {
-                extension: foundationIpsum,
-                locator: "Zurb"
+                extension: yetiIpsum,
+                locator: "Yeti"
             }
             );
     </script>
