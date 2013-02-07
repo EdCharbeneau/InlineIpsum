@@ -38,9 +38,7 @@
             }
             return this;
         },
-
-        image: function(width, height, text, bgColor, fgColor, attributes)
-        {
+        _image: function (width, height, text, bgColor, fgColor, attributes) {
             height = height || width;
             bgColor = bgColor || "eee";
             var dim = width + "x" + height + "/";
@@ -49,8 +47,11 @@
             text = (typeof text != 'undefined') ? "&text=" + text : "";
             var tag = "<image/>";
             var imgUrl = "http://placehold.it/" + dim + fgColor + bgColor + text
-            attributes = $.extend({}, {"src": imgUrl}, attributes)
-            this._addCache(this._tagBuilder(tag, "", attributes));
+            attributes = $.extend({}, { "src": imgUrl }, attributes)
+            return this._tagBuilder(tag, "", attributes)
+        },
+        image: function (width, height, text, bgColor, fgColor, attributes) {
+            this._addCache(this._image(width, height, text, bgColor, fgColor, attributes));
             return this;
         },
 
@@ -86,6 +87,19 @@
         },
 
         //helper methods
+        words: function (count) {
+            this._cache += (this._words(count));
+            return this;
+        },
+
+        sentences: function (count) {
+            this._cache += (this._sentences(count));
+            return this;
+        },
+        paragraphs: function (count) {
+            this._cache += (this._paragraphs(count));
+            return this;
+        },
         dl: function (listCount, wordCount, hasLinks, olAttributes, liAttributes) {
             this._list("<dl></dl>", "<dd></dd>", listCount, wordCount, hasLinks, olAttributes, liAttributes);
             return this;
@@ -159,7 +173,7 @@
             }
         }
         settings = $.extend({}, $.fn.inlineIpsum.options, options);
-        
+
         return this.replaceText(new RegExp(settings.token + settings.locator + ".Ipsum(\\..*?\\))*", "gi"), inline);
 
     };
