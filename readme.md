@@ -1,14 +1,19 @@
 #InlineIpsum for jQuery
-The InlineIpsum for jQuery plugin provides a fluent API that creates Lorem Ipsum text at runtime using simple helper extension methods. The InlineIpsum plugin for jQuery is specifically for reducing prototyping markup.
+The InlineIpsum for jQuery plugin provides a fluent API that creates Lorem Ipsum text at runtime using simple helper extension methods. The InlineIpsum plugin for jQuery is specifically for reducing prototyping markup. Since lorem ipsum is injected at runtime, your markup remains untouched and your source code remains clean.
 
 ###Install InlineIpsum for jQuery:
 1. Reference jQuery ``<script src="jquery-1.8.3.min.js"></script>``
 2. Reference inlineIpsum ``<script src="jquery.inlineIpsum.min.js"></script>``
 3. Initialize the plugin ``<script>$('body *').inlineIpsum();></script>``
+4. Place @Html.Ipsum.p() in anywhere in your document's body to generate a paragraph of lorem ipsum.
 
-Download InlineIpsum and run the index.html from the Demo folder.
+For a full example, download InlineIpsum and run the index.html from the Demo folder.
 
-###Getting started.
+###Getting started
+
+**Here are some things you can do with inlineIpsum**
+
+Each helper his highly configurable, detailed documentation is coming soon. See the demo for a sample of what's possible.
 
 	Paragraph
 	@Html.Ipsum.p()
@@ -39,6 +44,24 @@ Download InlineIpsum and run the index.html from the Demo folder.
 	Get 5 paragraphs with no HTML wrap
 	@Html.Ipsum.paragraphs(5)
 
+
+
+##### Learn more
+InlineIpsum is the platform independent port of the Prototyping MVC HTML helper package for Razor. You can read about why Prototyping MVC was created in the article: [Rapid Prototyping, MVC the working Model
+](http://www.simple-talk.com/dotnet/asp.net/rapid-prototyping,-the-mvc-working-model/)
+
+The inlineIpsum syntax was designed to mimic Razor syntax (@Html) except inlineIpsum's syntax is configurable through the the plugin options by setting the token and locator properties. The token and locator properties are included in the regular expression that locates the inline code which is processed into lorem ipsum elements.
+
+    <script>
+        $('body *').inlineIpsum({ 
+					token: "@", //default
+					locator: "Html"//default
+					});
+    </script>
+
+#####Even more
+More documentation is coming soon. Check out the full repository for details on how to configure and write plugings for inlineIpsum.
+
 ####Credits
 
 InlineIpsum is possible because of the following projects that are included in it's source.
@@ -52,10 +75,9 @@ The placehold.it image service: [placehold.it](http://placehold.it)
 
 Thank you!
 
-##### Learn more
-Still not ready for prime-time.
-
 ##### Changelog
+- 1.0 Initial release
+	- Features complete
 - 0.6 Added new features
 	- words
 	- sentences
