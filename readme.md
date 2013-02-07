@@ -32,6 +32,12 @@ Download InlineIpsum and run the index.html from the Demo folder.
 	@Html.Ipsum.h1().p().h2().p().h3().ol(10,3, true)
 	placeholder image provided by [placehold.it](http://placehold.it)
 	@Html.Ipsum.image(600,200, "has text")
+	Get 5 words with no HTML wrap
+	@Html.Ipsum.words(5)
+	Get 5 sentences with no HTML wrap
+	@Html.Ipsum.sentences(5)
+	Get 5 paragraphs with no HTML wrap
+	@Html.Ipsum.paragraphs(5)
 
 ####Credits
 
@@ -50,6 +56,10 @@ Thank you!
 Still not ready for prime-time.
 
 ##### Changelog
+- 0.6 Added new features
+	- words
+	- sentences
+	- paragraphs
 - 0.5 Added error handling, no more killing javascript
 - 0.4 Added placeholder image helper
 - 0.3 Updated Core to allow custom token in place of "@"
