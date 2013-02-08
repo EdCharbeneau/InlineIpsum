@@ -231,7 +231,6 @@
         * The command should result in a valid JavaScript function call to Ipsum.<functions>.write()
         */
         var command = str.replace(settings.token + settings.locator + ".", "").concat(".write()");
-
         var result; //the command results will be stored here
 
         //Execute the JavaScript command
@@ -256,8 +255,12 @@
         * 5.) Direct writes to the buffer should be used sparingly, instead use _addBuffer
         */
         //Extend an extension if it is defined in the options
-        if (typeof options != 'undefined' && typeof options.extensions != 'undefined')
-            options.extension = $.extend({}, $.fn.inlineIpsum.options.extension, options.extension);
+        if (typeof options != 'undefined') {
+            if (typeof options.extension != 'undefined') {
+                options.extension = $.extend({}, $.fn.inlineIpsum.options.extension, options.extension);
+            }
+        }
+
         settings = $.extend({}, $.fn.inlineIpsum.options, options);
 
         //Call jquery.ba-replacetext.js
