@@ -76,6 +76,7 @@ The placehold.it image service: [placehold.it](http://placehold.it)
 Thank you!
 
 ##### Changelog
+- 1.1 Minor core changes
 - 1.0 Initial release
 	- Features complete
 - 0.6 Added new features
