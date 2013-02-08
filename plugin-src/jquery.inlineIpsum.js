@@ -3,6 +3,7 @@
     'use strict';
 
     var IpsumWriter = {
+        _lorem: new Lorem(),
 
         _cache: "",
 
@@ -11,17 +12,14 @@
         },
 
         _words: function (count) {
-            var lorem = new Lorem();
-            return lorem.createText(count, Lorem.TYPE.WORD)
+            return this._lorem.createText(count, Lorem.TYPE.WORD)
         },
 
         _sentences: function (count) {
-            var lorem = new Lorem();
-            return lorem.createText(count, Lorem.TYPE.SENTENCE)
+            return this._lorem.createText(count, Lorem.TYPE.SENTENCE)
         },
         _paragraphs: function (count) {
-            var lorem = new Lorem();
-            return lorem.createText(count, Lorem.TYPE.PARAGRAPH)
+            return this._lorem.createText(count, Lorem.TYPE.PARAGRAPH)
         },
 
         _tagBuilder: function (tag, text, attributes) {
