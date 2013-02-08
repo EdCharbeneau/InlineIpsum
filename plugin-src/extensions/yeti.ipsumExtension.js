@@ -44,7 +44,7 @@ var yetiIpsum =
             //thanks for the random color code http://paulirish.com/2009/random-hex-color-code-snippets/
             wrapper.append(this._image(width, height, "[img]", i < 4 ? colors[i] : Math.floor(Math.random() * 16777215).toString(16)))
         }
-        this._addCache(wrapper);
+        this._addBuffer(wrapper);
         return this;
     }
 }
